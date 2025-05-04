@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.couponapi.controller.dto.CouponIssueRequestDto;
 import org.example.couponcore.component.DistributeLockExecutor;
+import org.example.couponcore.service.AsyncCouponIssueServiceV1;
+import org.example.couponcore.service.AsyncCouponIssueServiceV2;
 import org.example.couponcore.service.CouponIssueService;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ public class CouponIssueRequestService {
 
     private final CouponIssueService couponIssueService;
     private final DistributeLockExecutor distributeLockExecutor;
+    private final AsyncCouponIssueServiceV1 asyncCouponIssueServiceV1;
+    private final AsyncCouponIssueServiceV2 asyncCouponIssueServiceV2;
 
     public void issueRequestV1(CouponIssueRequestDto requestDto){
         /*synchronized (this) {
@@ -28,4 +32,14 @@ public class CouponIssueRequestService {
         log.info("쿠폰 발급 완료. couponId: %s, userId: %s".formatted(requestDto.couponId(), requestDto.userId()));
     }
     //1. mysql, 2. redis 각각 rock을 구현하고 성능 테스트 진행
+
+    public void asyncIssueRequestV1(CouponIssueRequestDto requestDto){
+        asyncCouponIssueServiceV1.issue(requestDto.couponId(), requestDto.userId());
+
+    }
+
+    public void asyncIssueRequestV2(CouponIssueRequestDto requestDto){
+        asyncCouponIssueServiceV2.issue(requestDto.couponId(), requestDto.userId());
+
+    }
 }
