@@ -22,7 +22,9 @@ public class AsyncCouponIssueServiceV2 {
     private final CouponCacheService couponCacheService;
 
     public void issue(long couponId, long userId) {
-        CouponRedisEntity coupon = couponCacheService.getCouponCache(couponId);
+        /*CouponRedisEntity coupon = couponCacheService.getCouponCache(couponId);*/
+        // 레디스에 붙어서 쿠폰 캐쉬를 가지고 오는 부분의 시간을 단축하기 위해 개선 진행하여 로컬 캐쉬에서 가지고 오도록 변경
+        CouponRedisEntity coupon = couponCacheService.getCouponLocalCache(couponId);
         coupon.checkIssuableCoupon();
         issueRequest(couponId, userId, coupon.totalQuantity());
 
