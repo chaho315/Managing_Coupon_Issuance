@@ -40,3 +40,11 @@ Aws Cloud Watch, Spring Actuator, Promethous, Grafana
 
 #### Etc
 Locust, Gradle, Docker
+
+![쿠폰 발급 서버 구조 학습-1](https://github.com/user-attachments/assets/19cf08ac-56a5-4296-b691-44746614906e)
+![쿠폰 발급 서버 구조 학습-2](https://github.com/user-attachments/assets/cc56774d-b09b-4875-89d6-6cfff61251f4)
+![쿠폰 발급 서버 구조 학습-3](https://github.com/user-attachments/assets/8e2638d4-b571-4b60-ba4c-a8d43c95e19e)
+![쿠폰 발급 서버 구조 학습-4](https://github.com/user-attachments/assets/ba8ee9bb-194d-4702-9398-823e433a9b85)
+![쿠폰 발급 서버 구조 학습-5](https://github.com/user-attachments/assets/8a24d044-ec88-4612-8e23-0b2b440ea4b0)
+
+
